@@ -1,11 +1,9 @@
 class Mover {
-  //반지름의 크기에 맞게 질량이 할당되게
   constructor(x, y, radius) {
     this.pos = createVector(x, y);
     // this.vel = createVector(0, 0);
     this.vel = p5.Vector.random2D();
-    //밑에거 오류있을지도모름
-    this.vel = dirVector.mag();
+    this.vel.mult(2);
     this.acc = createVector(0, 0);
     this.radius = radius;
     this.mass = radius ** (1 / 2);
@@ -28,12 +26,18 @@ class Mover {
       let delta = this.pos.x - (0 + this.radius);
       this.pos.x += -2 * delta;
       this.vel.x *= -1;
-    } else if (this.pos.y > height - 1 - this.radius) {
+    } else if (this.pos.x > width - 1 - this.radius) {
+      let delta = this.pos.x - (width - 1 - this.radius);
+      this.pos.x += -2 * delta;
+      this.vel.x *= -1;
+    }
+    if (this.pos.y > height - 1 - this.radius) {
       let delta = this.pos.y - (height - 1 - this.radius);
       this.pos.y += -2 * delta;
       this.vel.y *= -1;
     }
   }
+
   display() {
     ellipse(this.pos.x, this.pos.y, 2 * this.radius);
   }
