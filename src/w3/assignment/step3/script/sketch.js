@@ -36,8 +36,8 @@ function draw() {
     if (!click) {
       click = ms.sub(cir);
       click.normalize();
-      click.mult(-4);
-      click.limit(1);
+      click.mult(-1);
+      // click.limit(-4);
     }
     acc = click;
   } else {
