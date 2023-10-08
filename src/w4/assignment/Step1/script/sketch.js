@@ -1,6 +1,6 @@
-let array = [];
+const bodies = [];
 let showVector = false;
-const G = 0.1;
+const G = 0.5;
 const bodyNum = 30;
 
 function setup() {
@@ -15,14 +15,14 @@ function draw() {
   for (let i = 0; i < bodyNum; i++) {
     for (let j = 0; j < bodyNum; j++) {
       if (i !== j) {
-        let forceForJ = array[i].attract(array[j]);
-        array[j].applyForce(forceForJ);
+        let forceForJ = bodies[i].attract(bodies[j]);
+        bodies[j].applyForce(forceForJ);
       }
     }
-    array[i].update();
-    array[i].display();
+    bodies[i].update();
+    bodies[i].display();
     if (showVector) {
-      array[i].displayVectors();
+      bodies[i].displayVectors();
     }
   }
 }
@@ -32,8 +32,7 @@ function mousePressed() {
 }
 
 function init() {
-  array = [];
-  for (let i = 0; i < bodyNum; i++) {
-    array.push(new Body(random(width), random(height), random(16, 100)));
+  while (bodies.length < bodyNum) {
+    bodies.push(new Body(random(width), random(height), random(16, 100)));
   }
 }
