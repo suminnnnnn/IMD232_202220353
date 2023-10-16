@@ -5,7 +5,7 @@ function setup() {
   setCanvasContainer('canvas', 3, 2, true);
   background(255);
   mover = new Mover(width / 2, height / 2, 20);
-  gravity = createVector(0, 0.1);
+  gravity = createVector(0, 0.5);
 }
 
 function draw() {
