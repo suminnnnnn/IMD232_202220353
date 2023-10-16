@@ -20,7 +20,7 @@ function draw() {
 
   let dragMag = dragForce.mag();
   dragForce.normalize();
-  dragForce.mult(dragMag * 0.05);
+  dragForce.mult(dragMag * 0.5);
 
   if (mover.isDragging) {
     mover.applyForce(dragForce);
