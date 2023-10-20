@@ -6,7 +6,8 @@ function setup() {
   setCanvasContainer('canvas', 2, 1, true);
 
   colorMode(HSL, 360, 10, 100);
-  particle = new Ball(width / 2, 0, 0, 0, 100, 50);
+  // 밑에 100, 50이라고 되어있었는데 100을 0으로 수정함
+  particle = new Ball(width / 2, 0, 0, 0, 0, 50);
 
   emitter = new Emitter(width / 2, height);
 
