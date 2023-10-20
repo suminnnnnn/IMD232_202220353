@@ -8,6 +8,7 @@ class Rect {
     this.rad = this.mass * 1;
     this.color = color(h, s, v);
     this.rotation = initialRotation;
+    this.rotationSpeed = random(-0.1, 0.1);
   }
 
   applyForce(force) {
@@ -20,7 +21,7 @@ class Rect {
     this.pos.add(this.vel);
     this.acc.mult(0);
 
-    this.rotation += radians(5);
+    this.rotation += this.rotationSpeed;
   }
 
   display() {
