@@ -1,9 +1,14 @@
+// Traffic 클래스 정의
 class Traffic {
+  // constructor 정의
   constructor() {
+    // vehicles array 생성
     this.vehicles = [];
   }
 
+  // 실행
   run() {
+    // vehicles 반복문 (변수 eachVehicles에 할당 됨)
     this.vehicles.forEach((eachVehicle) => {
       const separate = eachVehicle.separate(this.vehicles);
       separate.mult(1);

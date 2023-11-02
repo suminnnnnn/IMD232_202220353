@@ -118,11 +118,6 @@ class Vehicle {
     vertex(0, 0);
     vertex(this.rad * cos(radians(135)), this.rad * sin(radians(135)));
     endShape(CLOSE);
-    // noFill();
-    // stroke(0, 0, 60);
-    // ellipse(0, 0, 2 * this.rad);
-    // stroke(0, 0, 80);
-    // ellipse(0, 0, 2 * this.neighborhooodRad);
     pop();
   }
 }
