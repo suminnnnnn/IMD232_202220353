@@ -1,22 +1,18 @@
 let traffic;
-let debug = true;
+let infiniteOffset = 80;
 
 function setup() {
-  setCanvasContainer('canvas', 2, 1, true);
-
+  setCanvasContainer('canvas', 3, 2, true);
   colorMode(HSL, 360, 100, 100, 100);
-
+  background('white');
   traffic = new Traffic();
-
-  for (let n = 0; n < 20; n++) {
+  for (let n = 0; n < 10; n++) {
     traffic.addVehicle(random(width), random(height));
   }
-
-  background(0, 100, 100);
 }
 
 function draw() {
-  background(0, 100, 100);
+  background('white');
   traffic.run();
 }
 

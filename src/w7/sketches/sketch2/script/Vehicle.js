@@ -11,18 +11,12 @@ class Vehicle {
     this.color = color;
   }
 
-  seperate(others) {
-    // for (let idx = 0; idx < others.length; idx++) {
-    //   others[idx];
-    // }
+  separate(others) {
     let cnt = 0;
     let steer = createVector(0, 0);
-
     others.forEach((eachOther) => {
-      // (eachOther.pos.x - this.pos.x) ** 2 +
-      // (eachOther.pos.y - this.pos.y) ** 2;
       let dist = this.pos.dist(eachOther.pos);
-      if (dist > 0 && disth <= eachOther.rad + this.rad) {
+      if (dist > 0 && dist <= eachOther.rad + this.rad) {
         let towardMeVec = p5.Vector.sub(this.pos, eachOther.pos);
         towardMeVec.setMag(1 / dist);
         steer.add(towardMeVec);
@@ -45,8 +39,8 @@ class Vehicle {
       this.pos.x = -20;
     }
     if (this.pos.y < -20) {
-      this.pos.y = width + 20;
-    } else if (this.pos.y > width + 20) {
+      this.pos.y = height + 20;
+    } else if (this.pos.y > height + 20) {
       this.pos.y = -20;
     }
   }
