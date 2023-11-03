@@ -1,18 +1,32 @@
+//Vehicle 클래스
 class Vehicle {
+  // 생성자 함수 생성
   constructor(x, y, mass, rad, speedMx, forceMx, color) {
+    // 위치 백터 생성, 좌표 x, y 설정
     this.pos = createVector(x, y);
+    // 속도 생성, 랜덤으로 설정
     this.vel = p5.Vector.random2D();
+    // 가속도 생성
     this.acc = createVector();
+    // 질량 설정, mass값이 질량으로 설정됨
     this.mass = mass;
+    // 반지름 설정, rad값이 반지름으로 설정됨
     this.rad = rad;
+    // 최대속도 설정, speedMx값이 최대속도로 설정됨
     this.speedMx = speedMx;
+    // 최대힘 설정, forceMx값이 최대힘으로 설정됨
     this.forceMx = forceMx;
+    // 주변에 반응하는 반경 설정 (50)
     this.neighborhooodRad = 50;
+    // 색 설정, color값이 색으로 설정됨
     this.color = color;
   }
 
+  // 응집력 계산
   cohesion(others) {
+    // 주변 것들 수 세는 변수 생성, 처음엔 0으로 시작
     let cnt = 0;
+    //
     const steer = createVector(0, 0);
     others.forEach((each) => {
       if (each !== this) {
@@ -43,7 +57,6 @@ class Vehicle {
           (this.pos.x - each.pos.x) ** 2 + (this.pos.y - each.pos.y) ** 2;
         if (distSq < this.neighborhooodRad ** 2) {
           steer.add(each.vel);
-          //   steer.add(p5.Vector.normalize(each.vel));
           cnt++;
         }
       }
