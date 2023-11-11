@@ -14,8 +14,9 @@ var engine = Engine.create(),
   world = engine.world;
 
 // create renderer
+const elem = document.querySelector('#canvas');
 var render = Render.create({
-  element: document.body,
+  element: elem,
   engine: engine,
   options: {
     width: 800,
