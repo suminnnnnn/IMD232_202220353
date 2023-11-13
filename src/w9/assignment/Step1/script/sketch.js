@@ -13,6 +13,8 @@ var Engine = Matter.Engine,
   Mouse = Matter.Mouse,
   Bodies = Matter.Bodies;
 
+// Common.setDecomp(decomp);
+
 // create engine
 var engine = Engine.create(),
   world = engine.world;
