@@ -35,14 +35,14 @@ class Cell {
     }
   }
 
-  update() {
-    this.state = this.nextState;
-  }
-
   isHover(mx, my) {
     return (
       this.x < mx && this.x + this.w > mx && this.y < my && this.y + this.h > my
     );
+  }
+
+  update() {
+    this.state = this.nextState;
   }
 
   toggleState(mx, my) {
